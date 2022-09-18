@@ -20,7 +20,7 @@ Our approach for a possible geometric augmentation:
 
 **<ins>Implementation:</ins>** The full implementation of this geometric augmentation can be found in inference2.py, whereas if one runs the file, they shall have the new data set generated AUTOMATICALLY. PLEASE consider changing the paths of the files to match your coding environment. After running the file, we saved the results in final_res.py.
 
-The **<ins>inference2.py</ins>** path file: DeepRectangling/Codes/inference.py2
+The **<ins>inference2.py</ins>** path file: DeepRectangling/Codes/inference.py2 <br />
 The **<ins>final_rest.py</ins>** path file: DeepRectangling/Codes/Data/DIR-D/final_res
 
 **<ins>Training with the new generated data:</ins>**
