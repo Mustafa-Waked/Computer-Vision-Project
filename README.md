@@ -4,7 +4,7 @@ University of Haifa computer vision lab project (Summer 2022) based on the paper
 
 **Authors:** Mustafa Waked (318577921), Layan Haddad (318369709)
 
-## Description
+## What this project does
 
 The paper addresses image rectangling for stitched panoramas using a learning-based mesh deformation approach. Our coursework extended the training pipeline by applying **geometric augmentation** (crop + scale) to increase usable training samples instead of discarding ~95% of generated data.
 
@@ -24,8 +24,8 @@ The paper addresses image rectangling for stitched panoramas using a learning-ba
 1. Crop a region from an image.
 2. Resize the crop back to the original image dimensions.
 
-| File (in full project) | Role |
-|------------------------|------|
+| File (in full project on Drive) | Role |
+|-----------------------------------|------|
 | `DeepRectangling/Codes/inference2.py` | Generates augmented dataset |
 | `DeepRectangling/Codes/Data/DIR-D/final_res` | Saved augmentation outputs |
 
@@ -40,15 +40,32 @@ Computer-Vision-Project/
 └── .gitignore
 ```
 
-## Full source code
+## Prerequisites
 
-Source code and datasets are **not stored in this GitHub repo** due to size. They are available here:
+- Python 3.6–3.7 (for legacy TensorFlow 1.x compatibility)
+- GPU recommended (we used Google Colab free tier)
+- Full codebase and datasets from Google Drive (see below)
 
-**[Google Drive — project files](https://drive.google.com/drive/folders/16HMN2rbbD8x2HcculvynC7JIss7dJhaf?usp=sharing)**
+## Installation
 
-Download the Drive folder, then follow paths inside the paper codebase (`DeepRectangling/Codes/…`).
+1. Clone this repository for the report and documentation:
 
-## How to run (from Drive download)
+   ```bash
+   git clone https://github.com/Mustafa-Waked/Computer-Vision-Project.git
+   cd Computer-Vision-Project
+   ```
+
+2. Download the full project from Google Drive:
+
+   **[Google Drive — project files](https://drive.google.com/drive/folders/16HMN2rbbD8x2HcculvynC7JIss7dJhaf?usp=sharing)**
+
+3. Extract the Drive folder and follow paths inside the paper codebase (`DeepRectangling/Codes/…`).
+
+## Build
+
+There is no build step in this GitHub repo. After downloading Drive content, install dependencies inside the paper codebase environment (see **Run** below).
+
+## Run
 
 ### 1. Generate augmented data
 
@@ -69,22 +86,39 @@ pip install numpy==1.18.1
 python train.py
 ```
 
-Use the paper’s README for full training/test steps and checkpoint paths.
+Use the paper's README for full training/test steps and checkpoint paths.
 
 ### 3. Test
 
 Follow the paper README testing instructions after training, updating model and data paths.
 
-## Expected results
+## Example workflow
 
-Testing metrics should be comparable to the baseline paper; the goal of our augmentation was to **reduce sample elimination** during training data preparation, not to change the core rectangling model architecture.
+```text
+Download Drive → inference2.py (augmentation) → train.py (Colab) → paper test scripts
+```
+
+## Expected output
+
+- Augmented images under `Data/DIR-D/final_res`
+- Training checkpoints per the paper README
+- Testing metrics comparable to the baseline paper; our augmentation aimed to **reduce sample elimination** during data prep, not to change the core rectangling architecture
+
+## Troubleshooting
+
+| Problem | Likely cause | Fix |
+|---------|--------------|-----|
+| `No module named tensorflow` | Wrong Python version | Use Python 3.6–3.7 and TF 1.13.1 as in the paper. |
+| CUDA / GPU errors on Colab | Runtime disconnected or TF version mismatch | Reconnect runtime; reinstall pinned versions above. |
+| `inference.py2` not found | Typo in old notes | Use `inference2.py` from the Drive folder. |
+| Empty repo after clone | Code lives on Drive | Download the linked Drive folder — this repo is report + docs only. |
+| Path errors in scripts | Hard-coded Colab paths | Edit paths in `inference2.py` / `train.py` for your local or Drive layout. |
 
 ## Notes / limitations
 
 - Legacy TensorFlow 1.x / Keras 2.x — may require Colab or a controlled Python 3.6–3.7 environment.
 - GPU recommended for training; we used free Colab GPUs.
 - This repo contains the **report PDF** and documentation only; clone/download Drive content to run code.
-- Typo in original notes: script referenced as `inference.py2` in places — verify actual filename in Drive (`inference2.py`).
 
 ## Author
 
