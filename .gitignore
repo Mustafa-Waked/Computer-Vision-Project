@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# ML artifacts
+*.h5
+*.ckpt
+*.pt
+*.pth
+checkpoints/
+logs/
+runs/
+
+# Data (large)
+data/
+dataset/
+*.zip
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
